@@ -1,0 +1,21 @@
+********************************************************************Linux Command*******************************************************************
+
+1)  pwd      		-----> Path of Current Location
+2)  ls  	 	-----> List out the all dir,files for a respective location
+3)  mkdir 	 	-----> Make new directory
+4)  rmdir    		-----> Remove the Directory
+5)  whoami   		-----> Show user name
+6)  cd	 		-----> Change directory
+7)  date    		-----> Give the current date and time
+8)  date +%D		-----> Give current date  dd/mm/yyyy
+9)  date +%T 		-----> Give current Time  HH:MM:SS
+10) date +%H:%M 	-----> Give Time in Specific Format HH:MM
+11) cd ..		-----> Get Outside the Directory
+12) ls -lt		-----> Give the all the details about the directory 
+13) ls -ltr 		-----> Give the all the details about the directory in reverse Order
+14) touch file.ext      -----> Create a new File
+15) nano file.ext 	-----> Edit the File
+16) cat file.ext	-----> read the file content
+17) clear		-----> Clear the Screen
+18) mv file.ext dir_nm  -----> move file one dir to another dir
+19) cp file.ext fir_nm	-----> Copy file one dir to another dir
