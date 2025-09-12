@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+    <style>
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Array Manipulation</h2>
+    
+    
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+
+    
+    <button onclick="addAtEnd()">Add at End</button>
+    <button onclick="addAtStart()">Add at Start</button>
+    <button onclick="deleteFromEnd()">Delete from End</button>
+    <button onclick="deleteFromStart()">Delete from Start</button>
+    <button onclick="displayOddNumbers()">Display Odd Numbers</button>
+    <button onclick="displayEvenNumbers()">Display Even Numbers</button>
+
+   
+    <div id="result" class="result"></div>
+
+    <script>
+        
+        let numbersArray = [];
+
+       
+        function addAtEnd() {
+            const num = document.getElementById("numberInput").value;
+            if (num !== "") {
+                numbersArray.push(Number(num));
+                document.getElementById("numberInput").value = "";
+                displayArray();
+            } else {
+                alert("Please enter a number.");
+            }
+        }
+
+        function addAtStart() {
+            const num = document.getElementById("numberInput").value;
+            if (num !== "") {
+                numbersArray.unshift(Number(num));
+                document.getElementById("numberInput").value = "";
+                displayArray();
+            } else {
+                alert("Please enter a number.");
+            }
+        }
+
+        function deleteFromEnd() {
+            if (numbersArray.length > 0) {
+                numbersArray.pop();
+                displayArray();
+            } else {
+                alert("Array is empty.");
+            }
+        }
+
+        function deleteFromStart() {
+            if (numbersArray.length > 0) {
+                numbersArray.shift();
+                displayArray();
+            } else {
+                alert("Array is empty.");
+            }
+        }
+
+        function displayOddNumbers() {
+            const oddNumbers = numbersArray.filter(num => num % 2 !== 0);
+            displayResult(oddNumbers);
+        }
+
+        function displayEvenNumbers() {
+            const evenNumbers = numbersArray.filter(num => num % 2 === 0);
+            displayResult(evenNumbers);
+        }
+
+        function displayArray() {
+            displayResult(numbersArray);
+        }
+
+        function displayResult(resultArray) {
+            const resultDiv = document.getElementById("result");
+            if (resultArray.length > 0) {
+                resultDiv.innerHTML = "Array: " + resultArray.join(", ");
+            } else {
+                resultDiv.innerHTML = "Array is empty.";
+            }
+        }
+    </script>
+
+</body>
+</html>
