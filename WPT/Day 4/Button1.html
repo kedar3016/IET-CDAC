@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" id="numberInput" placeholder="Enter the number">
+
+    
+    <button onclick="addAtEnd()">Add at End</button>
+    <button onclick="addAtStart()">Add at first</button>
+    <button onclick="deleteFromEnd()">Delete at end</button>
+     <button onclick="deleteFromStart()">Delete at first</button>
+     <button onclick="DisplayOdd()">odd numbers</button>
+     <button onclick="displayEven()">Even Number</button>
+
+     <div id="result" class="result"></div>
+
+    <script>
+        let numberArray = [];
+
+        function addAtEnd(){
+            const num = document.getElementById("numberInput").value;
+            if(numberArray!==""){
+                numberArray.push(Number(num));
+                document.getElementById("numberInput").value="";
+                displayArray();
+            }
+            else{
+                alert("Array is empty");
+            }
+        }
+
+        function addAtStart(){
+            const num = document.getElementById("numberInput").value;
+            if(numberArray !==""){
+                numberArray.unshift(Number(num));
+                document.getElementById("numberInput").value = "";
+                displayArray();
+            }
+            else{
+                alert("Array Is Empty!!")
+            }
+        }
+        function deleteFromEnd(){
+            if(numberArray ===""){
+                alert("Array is Empty!!");
+            }
+            else{
+                numberArray.shift();
+                displayArray();
+            }
+        }
+
+        function DisplayOdd(){
+            let oddNumbers = [];
+            oddNumbers = numberArray.filter(num =>num%2 !== 0);
+            displayResult(oddNumbers);
+        }
+        function displayEven(){
+            let evenNumbers = [];
+            evenNumbers = numberArray.filter(num=>num%2 === 0);
+            displayResult(evenNumbers);
+        }
+
+        function deleteFromStart(){
+            if(numberArray ===""){
+                alert("Array is Empty!!");
+            }
+            else{
+                numberArray.pop();
+                displayArray();
+            }
+        }
+
+        function displayArray(){
+            displayResult(numberArray);
+        }
+
+        function displayResult(resultArray) {
+            const resultDiv = document.getElementById("result");
+            if (resultArray.length > 0) {
+                resultDiv.innerHTML = "Array: " + resultArray.join(", ");
+            } else {
+                resultDiv.innerHTML = "Array is empty.";
+            }
+        }
+    </script>
+    
+</body>
+</html>
