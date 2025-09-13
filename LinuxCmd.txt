@@ -19,3 +19,15 @@
 17) clear		-----> Clear the Screen
 18) mv file.ext dir_nm  -----> move file one dir to another dir
 19) cp file.ext fir_nm	-----> Copy file one dir to another dir
+20) chmod 777 filename.ext ---> change the file mode
+
+
+	0 = Nothing
+	1 = Execute
+	2 = Write
+	3 = W + E
+	4 = Read
+	5 = R + E
+	6 = R + W
+	7 = RWX
+
