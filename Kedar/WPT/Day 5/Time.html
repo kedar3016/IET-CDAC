@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo{
+         font-family: 'Digital-7', monospace;
+         border: 2px;
+         border-style: solid;
+         border-radius: 4px;
+         border-right: 2px;
+         background-color: cornflowerblue;
+         
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Clock</h1>
+    <h2 align="center" id="demo"></h2>
+
+    <script>
+
+        setInterval(timeT, 1000);
+        
+
+        function timeT(){
+            let t = new Date();
+            document.getElementById("demo").innerHTML = 
+            t.getHours() + " : " +
+            t.getMinutes() + " : "+
+            t.getSeconds();
+        }
+    </script>
+</body>
+</html>

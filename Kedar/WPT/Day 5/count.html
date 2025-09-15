@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Click Counter</title>
+  <style>
+    #d1{
+        margin-top: 40%;
+        border: 2px;
+        border-style: solid;
+        border-radius: 8px;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        font-family:Arial, Helvetica, sans-serif;
+        background-color: rgb(230, 248, 68);
+    }
+    #btn{
+        
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: rgba(130, 111, 240, 0.911);
+    }
+    #btn[disabled] {
+      background-color: rgb(196, 76, 76);
+      cursor: not-allowed;
+      opacity: 10;
+    }
+  </style>
+</head>
+<body>
+<div id = "d1">
+  <button id="btn">Click me</button>
+  <p>Clicked: <span id="count">0</span> times</p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btn');
+    const countDisplay = document.getElementById('count');
+    let count = 0;
+
+    btn.addEventListener('click', () => {
+      count++;
+      countDisplay.textContent = count;
+
+      if (count === 10) {
+        btn.disabled = true;  
+      }
+    });
+  </script>
+
+</body>
+</html>

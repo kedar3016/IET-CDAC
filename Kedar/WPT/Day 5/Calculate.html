@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>Callback Calculator</title>
+</head>
+<body>
+  <script>
+    // 1. Display function
+    function display(result) {
+      alert("Result is: " + result);
+    }
+
+    // 2. Addition
+    function addition(n1, n2, callback) {
+      let result = n1 + n2;
+      callback(result);
+    }
+
+    // 3. Subtraction
+    function subtraction(n1, n2, callback) {
+      let result = n1 - n2;
+      callback(result);
+    }
+
+    // 4. Multiplication
+    function multiply(n1, n2, callback) {
+      let result = n1 * n2;
+      callback(result);
+    }
+
+    // 5. Division
+    function division(n1, n2, callback) {
+      if (n2 === 0) {
+        callback("Cannot divide by zero");
+      } else {
+        let result = n1 / n2;
+        callback(result);
+      }
+    }
+
+    // 6. Calculate function (main controller)
+    function calculate(n1, n2, mCallback) {
+      mCallback(n1, n2, display);
+    }
+
+    // --- Accept input from user ---
+    let num1 = parseFloat(prompt("Enter first number:"));
+    let num2 = parseFloat(prompt("Enter second number:"));
+    let choice = prompt("Choose operation: add, sub, mul, div").toLowerCase();
+
+    switch (choice) {
+      case "add":
+        calculate(num1, num2, addition);
+        break;
+      case "sub":
+        calculate(num1, num2, subtraction);
+        break;
+      case "mul":
+        calculate(num1, num2, multiply);
+        break;
+      case "div":
+        calculate(num1, num2, division);
+        break;
+      default:
+        alert("Invalid operation choice!");
+    }
+  </script>
+</body>
+</html>

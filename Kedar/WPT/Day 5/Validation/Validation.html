@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Script.js"></script>
+    <style>
+        #d1{
+            text-align: center;
+            font-family: cursive;
+            
+        }
+        #b1{
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color : white;
+            box-shadow: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id = "d1">
+        <h2>Employee Data</h2>
+        <label  >First Name : </label>
+        <input type="text" id="fname" placeholder="Enter first Name"><br><br>
+         <label >Last Name : </label>
+        <input type="text" id="lname" placeholder="Enter Last Name"><br><br>
+         <label >Email Id : </label>
+        <input type="email" id="email" placeholder="Enter Email ID"><br><br>
+         <label>Date of Birth : </label>
+        <input type="date" id="dob"><br><br>
+        <button id="b1" onclick="addData()">Show Data</button><br><br>
+    
+        
+
+    <table id="table1">
+        
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Action</th>
+        </tr>
+        
+        
+    </table>
+    </div>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>The result of the calculation is:</p>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(something) {
+
+            document.getElementById("demo").innerHTML = something;
+        }
+
+        function addition(f,s,mcallBack){
+            let result = f + s;
+            mcallBack(result);
+        }
+
+        function Subtraction(n1,n2,mcallBack){
+            let res = n1 - n2;
+            mcallBack(res);
+        }
+
+        function Multiply(n1,n2,mcallBack){
+            let mul = n1 * n2;
+            mcallBack(mul);
+        }
+
+
+        function Division(n1,n2,mcallBack){
+            let res = n1/n2;
+            mcallBack(res);
+        }
+
+        let first = parseFloat(prompt("Enter the First Number : "));
+        let second = parseFloat(prompt("Enter the second number: "));
+        let ch =parseInt(prompt("Enter Your Choice !! 1 : Add ,2 : Division , 3:Multiply , 4 : Divide "))
+   
+        switch(ch){
+            case 1:
+                addition(first,second,myDisplayer);
+            break;
+            case 2:Subtraction(first,second,myDisplayer);
+            break;
+            case 3:Multiply(first,second,myDisplayer);
+            break;
+            case 4:Division(first,second,myDisplayer);
+            break;
+           
+
+            default:alert("Invalid Choice!!!");
+        }
+    </script>
+    
+</body>
+</html>
