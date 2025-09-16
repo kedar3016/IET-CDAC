@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  
+</head>
+<body>
+    First Name : <input type="text" id = "FirstName"><br><br>
+    Last Name : <input type="text" id = "LastName"><br><br>
+    Age  : <input type="number" id ="age"><br><br>
+    <button type="submit"  onclick="accept()">Accept</button>
+    <div id = "display"></div>
+
+    <script>
+        
+
+        function accept(){
+            let Fname = document.getElementById("FirstName").value;
+            let Lname = document.getElementById("LastName").value;
+            let age = document.getElementById("age").value;
+
+            Fname = Fname.toLowerCase();
+            Lname = Lname.toLowerCase();
+
+            let username ="";
+            if(Fname.length >= 2 && Lname.length >= 2 && age != ""){
+                username = Fname.slice(0,2) + Lname.slice(Lname.length - 2) + age;
+    
+            }
+            else{
+                alert("Please enter at least 2 characters for names and a valid age.");
+                return;
+            }
+
+
+            let data = {
+            firstname:Fname,
+            lastname : Lname,
+            age : age,
+            username : username
+
+        }
+
+        const myjson = JSON.stringify(data);
+         const obj = JSON.parse(myjson);
+
+            let tableHTML = "<table border='1' cellpadding='5' cellspacing='0'>";
+            tableHTML += "<tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Username</th></tr>";
+            tableHTML += `<tr>
+                            <td>${obj.firstname}</td>
+                            <td>${obj.lastname}</td>
+                            <td>${obj.age}</td>
+                            <td>${obj.username}</td>
+                          </tr>`;
+            tableHTML += "</table>";
+
+            document.getElementById("display").innerHTML = tableHTML;
+
+        }
+        
+    </script>
+    
+
+</body>
+</html>

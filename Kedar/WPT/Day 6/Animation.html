@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1{
+            background-color:black;
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            border: 4px;
+            position: absolute;
+            left : 0px;
+
+        }
+        #d2{
+            background-color:rgb(161, 225, 255);
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            border: 4px;
+            position: absolute;
+            right: 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id = "d1"></div>
+    <div id="d2"></div>
+
+    <script>
+        let ele1 = document.getElementById("d1");
+        let ele2 = document.getElementById("d2");
+        let pos = 0;
+        let id = setInterval(frame , 3);
+
+        function frame(){
+            if (pos >= 550) {
+          clearInterval(id); // Stop moving
+        } else {
+          pos++;
+          ele1.style.top = pos + "px";
+          ele1.style.left = pos + "px";
+          ele2.style.top = pos + "px";
+          ele2.style.right = pos + "px";
+        }
+    }
+
+        
+    </script>
+</body>
+</html>

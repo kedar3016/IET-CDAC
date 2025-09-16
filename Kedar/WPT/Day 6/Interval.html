@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack</title>
+</head>
+<body>
+    <h1>Call Back Function</h1>
+    <button onclick="startInterval()">Start Interval</button>
+    <button onclick="stopInterval()">Stop Interval</button>
+    <button onclick="runTimeout()">TimeOut</button>
+    <p id="Intervalcnt">Interval Counter : 0</p>
+    <p id ="TimeOut">Timeout message will appear here.</p> 
+<script>
+    let cnt = 0;
+    let intervalID;
+    function update(){
+        cnt++;
+        document.getElementById("Intervalcnt").innerHTML = "Interval Counter : "+ cnt;
+    }
+    function startInterval(){
+        intervalID = setInterval(update,1000);
+        
+    }
+    function stopInterval(){
+        clearInterval(intervalID);
+    }
+    function showTimeoutMessage() {
+      document.getElementById("TimeOut").innerText = "This message appears after 3 seconds!";
+    }
+
+    function runTimeout() {
+      setTimeout(showTimeoutMessage, 3000);
+    }
+    
+    
+    </script>
+
+</body>
+</html>
