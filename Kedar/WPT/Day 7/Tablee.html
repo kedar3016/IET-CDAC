@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    Enter the Number :<input type = "number" id= "getnum"><br>
+    Enter the Start :<input type = "number" id= "start"><br>
+    Enter the end :<input type = "number" id= "end"><br>
+   <br> <button id="btn">Find Table!!</button>
+    <p id = "p1"></p>
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            let num = $("#getnum").val();
+            let st = $("#start").val();
+            let end = $("#end").val();
+            for(let i = st;i<=end;i++){
+            $("#p1").append(num + " * " +i+" = "+num*i+"<br>");
+            }
+            
+            })
+
+    })
+
+</script>
+</body>
+</html>

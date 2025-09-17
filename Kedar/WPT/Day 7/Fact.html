@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    Enter the Number :<input type = "number" id= "getnum">
+   <br> <button id="btn">Factorial!!</button>
+    <p id = "p1"></p>
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            let num = $("#getnum").val();
+            let fact = 1;
+            for(let i = 1;i<=num;i++){
+            fact = fact *i ;
+            }
+            $("#p1").text("The Factorial is "+fact);
+            })
+
+    })
+
+</script>
+</body>
+</html>

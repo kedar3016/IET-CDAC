@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-line Text on Click</title>
+  <style>
+    #p1{
+        border:solid; 
+        padding:10px;
+    }
+  </style>
+  <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<p id="p1">
+  Click me !
+</p>
+
+<script>
+  $(document).ready(function(){
+    $("#p1").click(function(){
+      $("#p1").html("Line 1: Hello<br>Line 2: How are you<br>Line 3: Have a nice day");
+    });
+  });
+</script>
+
+</body>
+</html>

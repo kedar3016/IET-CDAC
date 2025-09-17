@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+    <style>
+        #d1{
+            border:2px;
+            border-style: solid;
+            background-color: rgb(178, 245, 245);
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            border-radius: 8px;
+            text-align: center;
+            
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div id = "d1">Data 1</div><br><br><br><br><br><br>
+    <button id = "btn">Slide Up!!</button>
+    <button id = "btn1">Slide Down!!</button>
+    <button id = "btn2">Slide Toggle!!</button>
+    <script>
+        $(document).ready(function()
+        {
+            $("#btn").click(function(){
+                $("#d1").slideUp(2000)
+            })
+             $("#btn1").click(function(){
+                $("#d1").slideDown(2000)
+            })
+             $("#btn2").click(function(){
+                $("#d1").slideToggle(3000)
+            })
+
+
+
+        })
+        
+    </script>
+    
+</body>
+</html>

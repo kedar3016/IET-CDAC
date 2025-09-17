@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+    <style>
+        #d1{
+
+            border:2px;
+            border-style: solid;
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            border-radius: 8px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id ="d1"></div> -->
+    <p id = "p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas et expedita sed consequuntur commodi recusandae dolorum quo totam, dolor ducimus quos assumenda quis provident odit at iusto vero delectus. Fugiat?</p>
+    <button id="btn">Click here!!</button>
+    <script>
+
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("#p1").hide()
+            })
+        })
+    </script>
+    
+</body>
+</html>

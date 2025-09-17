@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fader</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+    <style>
+        #d1{
+            border:2px;
+            border-style: solid;
+            background-color: rgb(235, 27, 27);
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            border-radius: 8px;
+            text-align: center;
+            
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div id = "d1">Data 1</div><br><br><br><br><br><br>
+    <button id = "btn">Fade In!!</button>
+    <button id = "btn1">Fade Out!!</button>
+    <button id = "btn2">Fade Toggle!!</button>
+    <button id = "btn3">Fade To!!</button>
+    <script>
+        $(document).ready(function()
+        {
+            $("#btn").click(function(){
+                $("#d1").fadeIn(2000)
+            })
+             $("#btn1").click(function(){
+                $("#d1").fadeOut(2000)
+            })
+             $("#btn2").click(function(){
+                $("#d1").fadeToggle(1000)
+            })
+            $("#btn3").click(function(){
+                $("#d1").fadeTo(1000,0.5)
+            })
+
+
+
+        })
+        
+    </script>
+    
+</body>
+</html>
