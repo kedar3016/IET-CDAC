@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax </title>
+</head>
+<body>
+    <h1>Ajax File Reading </h1>
+    <button onclick="showData()">Show Data</button>
+    <p id="p1"></p>
+    <script>
+
+        function showData(){
+        let req = new XMLHttpRequest();
+            req.open("GET","Data.txt",true);
+            req.send();
+            req.onload = function () {
+    
+                document.getElementById("p1").innerHTML = req.responseText;
+            };
+        }
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax </title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        </style>
+</head>
+<body>
+    <h1>Find Details By ID</h1><br>
+    Enter Your Id : <input type = "number" id = "input1">
+    <button onclick="showData()">Show Data</button>
+    <div id="t1"></div>
+    <script>
+
+        function showData(){
+            let id = document.getElementById("input1").value;
+            let req = new XMLHttpRequest();
+            req.open("GET",`https://jsonplaceholder.typicode.com/posts/${id}`,true);
+            req.send();
+            req.onload = function () {
+                let data  = JSON.parse(this.responseText);
+    
+            let table = `<table>
+                <thead>
+                    <tr><th>ID</th><th>Title</th></tr>
+                </thead>
+                <tbody>`;
+            
+                table += `<tr>
+                    <td>${data.id}</td>
+                    <td>${data.title}</td>
+                </tr>`;
+            table += `</tbody></table>`;
+
+            document.getElementById("t1").innerHTML = table;
+
+
+        }
+    }
+    </script>
+    
+
+</body>
+</html>

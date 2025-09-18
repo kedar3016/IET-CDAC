@@ -1,0 +1,17 @@
+#d1 {
+    border: 3px solid black;
+    background-color: rgba(228, 243, 15, 0.788);
+    height: auto;
+    width : 50%;
+    padding-top: 6px;
+    padding-right: 15px;
+   
+    
+}
+#display{
+    margin: 20px;
+    align-self: center;
+    height: 40px;
+    width:300px;
+    border-radius: 8px;
+}

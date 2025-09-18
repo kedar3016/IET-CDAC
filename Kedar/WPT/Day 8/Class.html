@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .highlight{
+            background-color: rgb(247, 223, 88);
+        }
+        p{
+            text-align: center;
+            font-family: cursive;
+            color: rgb(238, 124, 124);
+            background-color: rgba(112, 36, 253, 0.24);
+        }
+        div{
+            text-align: center;
+            
+        
+        }
+        button{
+            border-radius: 8px;
+            background-color: brown;
+            padding: 8px;
+        }
+        #btn1{
+            background-color: aquamarine;
+            
+        }
+        #btn2{
+            background-color: rgba(238, 44, 44, 0.74);
+            
+        }
+        #btn3{
+            background-color: burlywood;
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Dolorem, nisi, distinctio velit nobis illo temporibus ipsam 
+        praesentium maxime minus iste, vel nam unde blanditiis. 
+        Nemo ipsa dolorem qui quas commodi.</p><br><br>
+    <div>
+    <button id = "btn1">click</button>
+    <button id = "btn2">RemoveClass</button>
+    <button id = "btn3">Toggle Class</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("p").addClass("highlight");
+            })
+            $("#btn2").click(function(){
+                $("p").removeClass("highlight");
+            })
+            $("#btn3").click(function(){
+                $("p").toggleClass("highlight");
+            })
+        })
+
+    </script>
+</body>
+</html>

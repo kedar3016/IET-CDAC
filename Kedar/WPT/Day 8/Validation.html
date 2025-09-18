@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body>
+
+Enter Username (3 to 8 characters): 
+<input type="text" id="uname" required minlength="3" maxlength="8"><br>
+
+<button onclick="validate()">Submit</button>
+
+<p id="p1"></p>
+
+<script>
+function validate() {
+  const input = document.getElementById('uname');
+  const msg = document.getElementById('p1');
+
+  if (input.checkValidity()) {
+    msg.innerText = "Valid input: " + input.value;
+  } else {
+    msg.innerText = input.validationMessage;  
+  }
+}
+</script>
+
+    
+</body>
+</html>
