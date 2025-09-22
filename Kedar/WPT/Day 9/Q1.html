@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id ="b1">Click !!!</button>
+    <div></div>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function(){
+                $.get("Data.txt",function(data,status){
+                    if(status === 200){
+                        $("div").text(data);
+                    }
+                    else{
+                        console.log("\nError in file Open!!");
+                        console.log(status);
+
+                    }
+                })
+            })
+        })
+    </script>
+    
+</body>
+</html>

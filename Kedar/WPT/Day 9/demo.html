@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Promise Object</h1>
+<h2>Using Promise to Load Data.txt</h2>
+
+<p id="demo"></p>
+
+<script>
+function display(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+let loadData = new Promise(function(resolve, reject) {
+  let req = new XMLHttpRequest();
+  req.open("GET", "Data.txt", true);
+  req.onload = function() {
+    if (req.status >= 200 && req.status < 300) {
+      resolve(req.responseText); 
+    } else {
+      reject("Failed to load file: " + req.status); 
+    }
+  };
+  req.onerror = function() {
+    reject("Network error");
+  };
+  req.send();
+});
+
+
+loadData.then(
+  function(data) {
+    console.log("File loaded successfully");
+    display(data); 
+  },
+  function(error) {
+    console.log("Error loading file");
+    display("Error: " + error);
+  }
+);
+</script>
+
+</body>
+</html>
