@@ -1,0 +1,513 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\froman\fprq2\fcharset0 Cambria;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset0 Cambria;}}
+{\*\listtable 
+{\list\listhybrid
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'00.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc4\leveljc0\levelstartat1{\leveltext\'02\'01.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc3\leveljc0\levelstartat1{\leveltext\'02\'02.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc2\leveljc0\levelstartat1{\leveltext\'02\'03.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc1\leveljc0\levelstartat1{\leveltext\'02\'04.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'05.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc4\leveljc0\levelstartat1{\leveltext\'02\'06.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc3\leveljc0\levelstartat1{\leveltext\'02\'07.;}{\levelnumbers\'01;}\jclisttab\tx360}
+{\listlevel\levelnfc0\leveljc1\levelstartat1{\leveltext\'02\'08.;}{\levelnumbers\'01;}\jclisttab\tx360}\listid1 }}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard 
+{\listtext\f0 1.\tab}\jclisttab\tx360\ls1\ilvl8\fi-360\li360\expndtw-5\b\i\f0\fs28 Display the Employee Name, Job, and Start Date of Employees hired from February 1981 to May 1981.\b0\fs24\par
+
+\pard\widctlpar\b\fs28 ->\b0\fs24   \i0\f1 mysql> select ename Name,job Job, hiredate 'Start Date' from emp where extract(year_month from hiredate) >= '198102' and extract(year_month from hiredate) < '198105';\par
++-------+----------+------------+\par
+| Name  | Job      | Start Date |\par
++-------+----------+------------+\par
+| ALLEN | SALESMAN | 1981-02-20 |\par
+| WARD  | SALESMAN | 1981-02-22 |\par
+| JONES | MANAGER  | 1981-04-02 |\par
++-------+----------+------------+\par
+3 rows in set (0.00 sec)\i\f0\par
+\par
+\b\fs28 2. Display the Name and Hiredate of every Employee who was hired in 1982.\par
+\f1\fs24 -> \b0\i0 mysql> select ename Name,hiredate Hire_Date from emp where date(hiredate) like "1982%";\par
++---------+------------+\par
+| Name    | Hire_Date  |\par
++---------+------------+\par
+| SCOTT   | 1982-12-09 |\par
+| HOFFMAN | 1982-03-24 |\par
+| MILLER  | 1982-01-23 |\par
+| ALEX    | 1982-01-24 |\par
++---------+------------+\par
+4 rows in set (0.00 sec)\par
+\par
+\b\i\f0\par
+\expndtw0\fs28 3. Write a query to display the current date. Label the column as Current Date.\par
+
+\pard -> \b0\i0\f1\fs24 mysql> select current_date as "current date";\par
++--------------+\par
+| current date |\par
++--------------+\par
+| 2025-11-11   |\par
++--------------+\par
+1 row in set (0.00 sec)\par
+\par
+
+\pard\widctlpar\b\i\f0\fs28 4. Display the Employee\rquote s Name, Hiredate, Salary and Review Date, which is first Monday after six months of service.\par
+->\b0\i0\f1\fs24 mysql> select ename as "Employee's Name", hiredate as "Hiredate", sal as "Salary", date_add(date_add(hiredate, interval 6 month), interval (8 - weekday(date_add(hiredate, interval 6 month))) % 7 day) as "Review Date" from emp;\par
++-----------------+------------+--------+-------------+\par
+| Employee's Name | Hiredate   | Salary | Review Date |\par
++-----------------+------------+--------+-------------+\par
+| GITA            | 1981-07-19 |   1750 | 1982-01-19  |\par
+| VRUSHALI        | 1981-07-19 |   1750 | 1982-01-19  |\par
+| SHARMIN         | 1981-07-19 |   1750 | 1982-01-19  |\par
+| BANDISH         | 1981-07-19 |   1750 | 1982-01-19  |\par
+| SMITH           | 1980-12-17 |    800 | 1981-06-23  |\par
+| AARAV           | 1981-12-31 |   3350 | 1982-07-06  |\par
+| THOMAS          | 1981-07-19 |   1750 | 1982-01-19  |\par
+| ALLEN           | 1981-02-20 |   1600 | 1981-08-25  |\par
+| WARD            | 1981-02-22 |   1250 | 1981-08-25  |\par
+| JONES           | 1981-04-02 |   2975 | 1981-10-06  |\par
+| MARTIN          | 1981-09-28 |   1250 | 1982-03-30  |\par
+| BLAKE           | 1981-05-01 |   2850 | 1981-11-03  |\par
+| CLARK           | 1981-06-09 |   2450 | 1981-12-15  |\par
+| SCOTT           | 1982-12-09 |   3000 | 1983-06-14  |\par
+| KING            | 1981-11-17 |   5000 | 1982-05-18  |\par
+| FRED            | 1983-08-09 |   5000 | 1984-02-14  |\par
+| TURNER          | 1981-09-08 |   1500 | 1982-03-09  |\par
+| ADAMS           | 1983-01-12 |   1100 | 1983-07-12  |\par
+| Ruhan           | 1983-08-09 |   2000 | 1984-02-14  |\par
+| Neel            | 1983-08-09 |   1000 | 1984-02-14  |\par
+| JAMES           | 1981-12-03 |    950 | 1982-06-08  |\par
+| FORD            | 1981-12-03 |   3000 | 1982-06-08  |\par
+| HOFFMAN         | 1982-03-24 |   4150 | 1982-09-28  |\par
+| GRASS           | 1980-02-14 |   2575 | 1980-08-19  |\par
+| MILLER          | 1982-01-23 |   1300 | 1982-07-27  |\par
+| AARUSH          | 1980-02-14 |   1350 | 1980-08-19  |\par
+| ALEX            | 1982-01-24 |   1250 | 1982-07-27  |\par
+| NATASHA         | 1981-07-19 |   1750 | 1982-01-19  |\par
+| SANGITA         | 1981-07-19 |   1750 | 1982-01-19  |\par
+| SUPRIYA         | 1981-07-19 |   1750 | 1982-01-19  |\par
++-----------------+------------+--------+-------------+\par
+30 rows in set (0.00 sec)\par
+\par
+\b\i\f2\fs28 5. Modify the query to display the dates as \ldblquote Sunday, the Seventh of September, 1981\rdblquote .\par
+\par
+-> \b0\i0\f1\fs24 mysql> select ename as "Employee's Name", date_format(hiredate, '%W, the %D of %M, %Y') as "Hiredate" from emp;\par
++-----------------+---------------------------------------+\par
+| Employee's Name | Hiredate                              |\par
++-----------------+---------------------------------------+\par
+| GITA            | Sunday, the 19th of July, 1981        |\par
+| VRUSHALI        | Sunday, the 19th of July, 1981        |\par
+| SHARMIN         | Sunday, the 19th of July, 1981        |\par
+| BANDISH         | Sunday, the 19th of July, 1981        |\par
+| SMITH           | Wednesday, the 17th of December, 1980 |\par
+| AARAV           | Thursday, the 31st of December, 1981  |\par
+| THOMAS          | Sunday, the 19th of July, 1981        |\par
+| ALLEN           | Friday, the 20th of February, 1981    |\par
+| WARD            | Sunday, the 22nd of February, 1981    |\par
+| JONES           | Thursday, the 2nd of April, 1981      |\par
+| MARTIN          | Monday, the 28th of September, 1981   |\par
+| BLAKE           | Friday, the 1st of May, 1981          |\par
+| CLARK           | Tuesday, the 9th of June, 1981        |\par
+| SCOTT           | Thursday, the 9th of December, 1982   |\par
+| KING            | Tuesday, the 17th of November, 1981   |\par
+| FRED            | Tuesday, the 9th of August, 1983      |\par
+| TURNER          | Tuesday, the 8th of September, 1981   |\par
+| ADAMS           | Wednesday, the 12th of January, 1983  |\par
+| Ruhan           | Tuesday, the 9th of August, 1983      |\par
+| Neel            | Tuesday, the 9th of August, 1983      |\par
+| JAMES           | Thursday, the 3rd of December, 1981   |\par
+| FORD            | Thursday, the 3rd of December, 1981   |\par
+| HOFFMAN         | Wednesday, the 24th of March, 1982    |\par
+| GRASS           | Thursday, the 14th of February, 1980  |\par
+| MILLER          | Saturday, the 23rd of January, 1982   |\par
+| AARUSH          | Thursday, the 14th of February, 1980  |\par
+| ALEX            | Sunday, the 24th of January, 1982     |\par
+| NATASHA         | Sunday, the 19th of July, 1981        |\par
+| SANGITA         | Sunday, the 19th of July, 1981        |\par
+| SUPRIYA         | Sunday, the 19th of July, 1981        |\par
++-----------------+---------------------------------------+\par
+30 rows in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 6. Create a query to display the name and salary for all Employees. Format the salary to be 15 characters long by adding \lquote $\rquote .\par
+-> \b0\i0\f1\fs24 mysql> select ename as "Employee Name", lpad(concat('$', sal), 15, ' ') as "Salary" from emp;\par
++---------------+-----------------+\par
+| Employee Name | Salary          |\par
++---------------+-----------------+\par
+| GITA          |           $1750 |\par
+| VRUSHALI      |           $1750 |\par
+| SHARMIN       |           $1750 |\par
+| BANDISH       |           $1750 |\par
+| SMITH         |            $800 |\par
+| AARAV         |           $3350 |\par
+| THOMAS        |           $1750 |\par
+| ALLEN         |           $1600 |\par
+| WARD          |           $1250 |\par
+| JONES         |           $2975 |\par
+| MARTIN        |           $1250 |\par
+| BLAKE         |           $2850 |\par
+| CLARK         |           $2450 |\par
+| SCOTT         |           $3000 |\par
+| KING          |           $5000 |\par
+| FRED          |           $5000 |\par
+| TURNER        |           $1500 |\par
+| ADAMS         |           $1100 |\par
+| Ruhan         |           $2000 |\par
+| Neel          |           $1000 |\par
+| JAMES         |            $950 |\par
+| FORD          |           $3000 |\par
+| HOFFMAN       |           $4150 |\par
+| GRASS         |           $2575 |\par
+| MILLER        |           $1300 |\par
+| AARUSH        |           $1350 |\par
+| ALEX          |           $1250 |\par
+| NATASHA       |           $1750 |\par
+| SANGITA       |           $1750 |\par
+| SUPRIYA       |           $1750 |\par
++---------------+-----------------+\par
+30 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 7. Display the Name, Hiredate and day of the week on which the employees started. Order the results by the Day of the week starting with Monday.\par
+-> \b0\fs24\par
+\par
+\par
+\b\fs28 8.Display details of orders received in the year 1986. \par
+->\b0\i0\f1\fs24 mysql> select * from orders where odate like "1986%";\par
+Empty set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 9.Write a query to find out the DAY (for example, SUNDAY) of the current date.\par
+->\b0\i0\f1\fs24 mysql> SELECT DATE_FORMAT(CURDATE(), '%W') AS "DAY";\par
++---------+\par
+| DAY     |\par
++---------+\par
+| Tuesday |\par
++---------+\par
+1 row in set (0.00 sec)\par
+\par
+\par
+\b\i\f2\fs28 10. Display the name and the date of joining of the employees who belong to department number 10. The date of joining should be formatted. For eg. if it is \lquote 10-JUN-97\rquote  it should be displayed as Fifteenth JUNE, 1997. The name of the employee should be in upper case.\par
+->\b0\i0\f1\fs24 mysql> select upper(ename) Name,date_format(hiredate,"%D-%b-%Y") as 'Date Of Joining' from emp where deptno = 10;\par
++--------+-----------------+\par
+| Name   | Date Of Joining |\par
++--------+-----------------+\par
+| AARAV  | 31st-Dec-1981   |\par
+| THOMAS | 19th-Jul-1981   |\par
+| CLARK  | 9th-Jun-1981    |\par
+| KING   | 17th-Nov-1981   |\par
+| MILLER | 23rd-Jan-1982   |\par
++--------+-----------------+\par
+5 rows in set (0.00 sec)\i\f0\par
+\b\fs28\par
+\f2 11.Consider the Ord table. Find the difference between the Order Date and Ship Date in months as well as days. Label the columns appropriately.\par
+->\b0\i0\f1\fs24 mysql> select ordid, timestampdiff(month, orderdate, shipdate) as months_diff, datediff(shipdate, orderdate) as days_diff from ord;\par
++-------+-------------+-----------+\par
+| ordid | months_diff | days_diff |\par
++-------+-------------+-----------+\par
+|   601 |           0 |        29 |\par
+|   602 |           0 |        15 |\par
+|   603 |           0 |         0 |\par
+|   604 |           0 |       -16 |\par
+|   606 |           0 |        16 |\par
+|   607 |           0 |         0 |\par
+|   608 |           0 |         0 |\par
+|   609 |           0 |        14 |\par
+|   610 |           0 |         1 |\par
+|   611 |           0 |         0 |\par
+|   612 |           0 |         5 |\par
+|   613 |           0 |         0 |\par
+|   614 |           0 |         4 |\par
+|   615 |           0 |         5 |\par
+|   616 |           0 |         7 |\par
+|   617 |           0 |        26 |\par
+|   618 |           0 |        19 |\par
+|   619 |           0 |       -18 |\par
+|   620 |           0 |         0 |\par
+|   621 |           0 |       -14 |\par
+|   622 |           0 |         1 |\par
+|   624 |           0 |         0 |\par
+|   625 |           0 |         1 |\par
+|   626 |           0 |         1 |\par
+|   627 |           0 |         1 |\par
+|   628 |           0 |         1 |\par
+|   629 |           0 |         2 |\par
+|   630 |           0 |         1 |\par
+|   631 |           0 |         0 |\par
+|   632 |           0 |         1 |\par
+|   633 |           0 |         2 |\par
+|   634 |           0 |         1 |\par
+|   635 |           0 |         0 |\par
++-------+-------------+-----------+\par
+33 rows in set (0.00 sec)\par
+\b\i\f2\fs28\par
+12. List employee details who have joined in December\par
+->\b0\i0\f1\fs24 mysql> select * from emp where date_format(hiredate,'%M') = 'December';\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |\par
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |\par
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |\par
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |\par
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+5 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f2\fs28 13.Display day on which KING joined.\par
+->  \b0\i0\f1\fs24 mysql> select ename Name,date_format(hiredate,"%W") as Join_Date from emp where ename ='KING';\par
++------+-----------+\par
+| Name | Join_Date |\par
++------+-----------+\par
+| KING | Tuesday   |\par
++------+-----------+\par
+1 row in set (0.00 sec)\par
+\par
+\b\i\f2\fs28 14. Display month on which MARTIN joined.\par
+-> \b0\i0\f1\fs24 mysql> select ename Name,date_format(hiredate,"%M") as Join_Month from emp where ename = "Martin";\par
++--------+------------+\par
+| Name   | Join_Month |\par
++--------+------------+\par
+| MARTIN | September  |\par
++--------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+\par
+\b\i\f2\fs28 15. Find number of days elapsed between today\rquote s date and hiredate of \lquote ADAMS\rquote .\par
+->  \b0\i0\f1\fs24 mysql> select datediff(curdate(),hiredate) as 'time Elasped' from emp where ename = 'adams';\par
++--------------+\par
+| time Elasped |\par
++--------------+\par
+|        15645 |\par
++--------------+\par
+1 row in set (0.00 sec)\par
+\par
+\b\i\f2\fs28\par
+
+\pard\widctlpar 16. Print the date, 15 days alter today\rquote s date.\par
+->\b0\i0\f1\fs24 mysql> select adddate(curdate(),interval 15 day);\par
++------------------------------------+\par
+| adddate(curdate(),interval 15 day) |\par
++------------------------------------+\par
+| 2025-11-27                         |\par
++------------------------------------+\par
+1 row in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 17. List all employee hired in the month of December.\par
+-> \b0\i0\f1\fs24 mysql> select * from emp where monthname(hiredate) = 'December';\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |\par
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |\par
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |\par
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |\par
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |\par
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+5 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 18. List all employee hired after 198.\par
+->\b0\i0\f1\fs24 mysql> select * from emp where year(hiredate) > 1980;\par
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |\par
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |\par
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |\par
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |\par
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |\par
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |\par
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |\par
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |\par
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |\par
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |\par
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |\par
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |\par
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |\par
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |\par
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |\par
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |\par
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |\par
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |\par
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |\par
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |\par
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |\par
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |\par
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |\par
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |\par
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |\par
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |\par
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |\par
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |\par
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+\par
+27 rows in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 19. Display names and jobs of employee in the format SMITH-CLERK.\par
+-> \b0\i0\f1\fs24 mysql> select concat(ename,'-',job) from emp;\par
++------------------------------+\par
+| concat(ename,'-',job)        |\par
++------------------------------+\par
+| GITA-Compliance officers     |\par
+| VRUSHALI-Compliance officers |\par
+| SHARMIN-Public Relation      |\par
+| BANDISH-Public Relation      |\par
+| SMITH-CLERK                  |\par
+| AARAV-CLERK                  |\par
+| THOMAS-CLERK                 |\par
+| ALLEN-SALESMAN               |\par
+| WARD-SALESMAN                |\par
+| JONES-MANAGER                |\par
+| MARTIN-SALESMAN              |\par
+| BLAKE-MANAGER                |\par
+| CLARK-MANAGER                |\par
+| SCOTT-ANALYST                |\par
+| KING-PRESIDENT               |\par
+| FRED-vice PRESIDENT          |\par
+| TURNER-SALESMAN              |\par
+| ADAMS-CLERK                  |\par
+| Ruhan-Network                |\par
+| Neel-vice PRESIDENT          |\par
+| JAMES-CLERK                  |\par
+| FORD-ANALYST                 |\par
+| HOFFMAN-MANAGER              |\par
+| GRASS-SALESMAN               |\par
+| MILLER-CLERK                 |\par
+| AARUSH-SALESMAN              |\par
+| ALEX-MANAGER                 |\par
+| NATASHA-CLERK                |\par
+| SANGITA-Compliance officers  |\par
+| SUPRIYA-ANALYST              |\par
++------------------------------+\par
+30 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 20. Show the length of names in EMP table. Eliminate duplicate length. Do not show the names.\par
+->\b0\i0\f1\fs24 mysql> select distinct length(ename) from emp;\par
++---------------+\par
+| length(ename) |\par
++---------------+\par
+|             4 |\par
+|             8 |\par
+|             7 |\par
+|             5 |\par
+|             6 |\par
++---------------+\par
+5 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 21. List the names and hiredate of EMP in dept 20, display hiredate formatted as 12/03/1984.\par
+->\b0\i0\f1\fs24 mysql> select ename as Name,date_format(hiredate,'%d/%m/%Y') as Date from emp where deptno = 20;\par
++---------+------------+\par
+| Name    | Date       |\par
++---------+------------+\par
+| SHARMIN | 19/07/1981 |\par
+| BANDISH | 19/07/1981 |\par
+| SMITH   | 17/12/1980 |\par
+| JONES   | 02/04/1981 |\par
+| SCOTT   | 09/12/1982 |\par
+| FRED    | 09/08/1983 |\par
+| ADAMS   | 12/01/1983 |\par
+| FORD    | 03/12/1981 |\par
++---------+------------+\par
+8 rows in set (0.00 sec)\par
+\par
+\par
+\b\i\f0\fs28 22. Find the day of week on which SMITH joined.\par
+->\b0\i0\f1\fs24 mysql> select ename Name,hiredate,dayname(hiredate) as Day_of_Week from emp where ename = 'smith';\par
++-------+------------+-------------+\par
+| Name  | hiredate   | Day_of_Week |\par
++-------+------------+-------------+\par
+| SMITH | 1980-12-17 | Wednesday   |\par
++-------+------------+-------------+\par
+1 row in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 23\fs32 . \fs28 Retrieve the ANALYST record with hiredate formatted as \lquote The 3\super rd\nosupersub  of Oct. 1984\rquote .\par
+-> \b0\i0\f1\fs24 mysql> select  ename Name,job,date_format(hiredate,'The %D of, %M %Y') as Date from emp where job = 'analyst';\par
++---------+---------+---------------------------+\par
+| Name    | job     | Date                      |\par
++---------+---------+---------------------------+\par
+| SCOTT   | ANALYST | The 9th of, December 1982 |\par
+| FORD    | ANALYST | The 3rd of, December 1981 |\par
+| SUPRIYA | ANALYST | The 19th of, July 1981    |\par
++---------+---------+---------------------------+\par
+3 rows in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 24. Calculate the total compensation expensive for each dept in 1 year. Assume that employees, who don't earn commission, receive non-monetary benefits than are worth Rs.1000 a month.\par
+-> \b0\i0\f1\fs24 mysql> SELECT DEPTNO, ROUND(SUM(SAL*12 + COALESCE(COMM,0)*12 + CASE WHEN COMM IS NULL THEN 12000 ELSE 0 END)) AS yearly_compensation FROM emp GROUP BY DEPTNO ORDER BY DEPTNO;\par
++--------+---------------------+\par
+| DEPTNO | yearly_compensation |\par
++--------+---------------------+\par
+|     10 |              229800 |\par
+|     20 |              328500 |\par
+|     30 |              423900 |\par
+|     50 |               99000 |\par
+|     60 |               60000 |\par
++--------+---------------------+\par
+5 rows in set (0.00 sec)\par
+\par
+\b\i\f0\fs28 25. Display the Names of the Managers as follows-\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent360\pnstart1\pnlcltr{\pntxta.}}
+\widctlpar\fi-360\li765 If the employee code is 7788 the Manager is CLARK\par
+{\pntext\f0 b.\tab}If the employee code is 7698 the Manager is BLAKE\par
+{\pntext\f0 c.\tab}If the employee code is 7566 the Manager is JONES\par
+{\pntext\f0 d.\tab}For all other Employees the Manager is KING\par
+
+\pard\widctlpar ->\b0\i0\f1\fs24 mysql> select ename, case mgr when 7788 then 'clark' when 7698 then 'blake' when 7566 then 'jones' else 'king' end as manager from emp;\par
++----------+---------+\par
+| ename    | manager |\par
++----------+---------+\par
+| GITA     | king    |\par
+| VRUSHALI | king    |\par
+| SHARMIN  | king    |\par
+| BANDISH  | king    |\par
+| SMITH    | king    |\par
+| AARAV    | king    |\par
+| THOMAS   | king    |\par
+| ALLEN    | blake   |\par
+| WARD     | blake   |\par
+| JONES    | king    |\par
+| MARTIN   | blake   |\par
+| BLAKE    | king    |\par
+| CLARK    | king    |\par
+| SCOTT    | jones   |\par
+| KING     | king    |\par
+| FRED     | king    |\par
+| TURNER   | blake   |\par
+| ADAMS    | clark   |\par
+| Ruhan    | king    |\par
+| Neel     | king    |\par
+| JAMES    | blake   |\par
+| FORD     | jones   |\par
+| HOFFMAN  | jones   |\par
+| GRASS    | king    |\par
+| MILLER   | king    |\par
+| AARUSH   | king    |\par
+| ALEX     | blake   |\par
+| NATASHA  | king    |\par
+| SANGITA  | king    |\par
+| SUPRIYA  | king    |\par
++----------+---------+\par
+30 rows in set (0.00 sec)\b\i\f0\fs28\par
+\b0\fs24\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\b\f2\fs28\par
+
+\pard\widctlpar\par
+\b0\f0\fs24\par
+\b\f2\fs28\par
+\fs32\par
+\fs28\par
+\b0\f0\fs24\par
+
+\pard\par
+\par
+\par
+}
+ 
