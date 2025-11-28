@@ -1,0 +1,35 @@
+package com.demo.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DButil {
+static Connection conn = null;
+	
+	public static Connection getMyConnection() {
+		
+			
+			try {
+				
+				if(conn == null) {
+				DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+				String url = "jdbc:mysql://192.168.10.117:3306/dac32?useSSL = false";
+				conn = DriverManager.getConnection(url,"dac32","welcome");
+				
+				
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error while establishing connection");
+				e.printStackTrace();
+			}
+			
+			
+		}
+		return conn;
+	}
+
+}
+
+}
