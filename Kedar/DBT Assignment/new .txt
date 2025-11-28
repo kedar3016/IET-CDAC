@@ -1,1 +1,43 @@
 
+ASS No 6
+
+1. select ename, job from emp where mgr is null;
+2. select ename, sal as old_price, round(sal * 1.005, 2) as new_price, round(sal * 0.005, 2) as price_increase from emp;
+3. select * from emp where date(hiredate) = (select date(hiredate) from emp where ename = 'KING');
+4. select (select max(sal) from emp) - sal as difference from emp where deptno = 10;
+5. select abs((select avg(sal) from emp where deptno = 20) - (select avg(sal) from emp where deptno = 30)) as diff_in_rs;
+6. select ename, sal, comm from emp where comm > sal * 0.05;
+7. select * from emp where sal < (select avg(sal) from emp where deptno = 20);
+8. select * from emp where empno not in (select mgr from emp where mgr is not null);
+9. select e.* from emp e where (select count(*) from emp where mgr = e.empno) = (select max(c) from (select count(*) c from emp where mgr is not null group by mgr) t);
+10. select concat(empno, ' ', ename, ' ', ifnull(mgr,'')) as result from emp;
+11. select * from emp where hiredate = (select min(hiredate) from emp) union select * from emp where hiredate = (select max(hiredate) from emp);
+12. select max(length(ename)) as longest, max(length(ename)) - max(length(ename)) over (order by length(ename) desc rows between 1 following and 1 following) as diff_from_next from emp;
+13. select * from emp where sal < 0.3 * (select sal from emp where job = 'PRESIDENT');
+14. select d.dname from dept d join (select deptno, sum(sal) s from emp group by deptno order by s desc limit 1) t on d.deptno = t.deptno;
+15. select d.dname from dept d join (select deptno from emp group by deptno order by count(*) limit 1) t on d.deptno = t.deptno;
+16. select deptno from emp group by deptno having avg(sal) not in ((select max(a) from (select avg(sal) a from emp group by deptno)), (select min(a) from (select avg(sal) a from emp group by deptno)));
+17. select concat('Mr. ', ename, ' works under ', (select ename from emp m where m.empno = e.mgr)) from emp e where ename = 'FORD';
+18. select * from emp where hiredate < (select hiredate from emp where ename = 'BLAKE');
+19. select distinct e.* from emp e join emp s on e.empno = s.mgr where e.hiredate > s.hiredate;
+20. select * from emp where sal = (select max(sal) from emp);
+21. select distinct e.empno, e.ename, e.job, d.* from emp e join dept d on e.deptno = d.deptno where e.empno in (select mgr from emp where mgr is not null) and e.deptno = 10;
+22. select year(hiredate) as year, count(*) as cnt from emp group by year(hiredate) order by cnt desc limit 1;
+23. select e.empno, e.ename, e.job, e.mgr, m.job as mgr_job from emp e left join emp m on e.mgr = m.empno;
+24. select e.* from emp e where (select count(*) from emp where mgr = e.empno) = (select max(cnt) from (select mgr, count(*) cnt from emp where mgr is not null group by mgr) t);
+25. select e.* from emp e where mgr = (select empno from emp where ename = 'BLAKE');
+26. select deptno from emp where lower(job) = 'clerk' group by deptno having count(*) > 1;
+27. select * from emp where sal < 0.3 * (select sal from emp where job = 'PRESIDENT');
+28. select e.ename, d.loc from emp e join dept d on e.deptno = d.deptno where d.loc != 'CHICAGO';
+29. select * from dept where deptno not in (select distinct deptno from emp where deptno is not null);
+30. select ename from emp where deptno = 30 and ename not in (select ename from emp where deptno = 20);
+31. select e.* from emp e where hiredate = (select min(hiredate) from emp m where m.deptno = e.deptno);
+32. select ename, hiredate, sal from emp where (sal, ifnull(comm,0)) = (select sal, ifnull(comm,0) from emp where ename = 'SCOTT') and ename != 'SCOTT';
+33. select * from emp where empno in (select distinct mgr from emp where mgr is not null);
+34. select e.ename as employee, coalesce(m.ename, 'NO MANAGER') as manager from emp e left join emp m on e.mgr = m.empno;
+35. select * from emp where empno not in (select distinct mgr from emp where mgr is not null);
+36. select ename, hiredate, case when hiredate = (select max(hiredate) from emp) then '*' else '' end as marker from emp;
+37. select * from emp e where sal > (select avg(sal) from emp m where m.deptno = e.deptno);
+38. select max(sal) from emp where sal < (select max(sal) from emp);
+39. select empno, ename, job, sal from emp where (ename, job, sal) in (select ename, job, sal from emp group by ename, job, sal having count(*) > 1) and empno not in (select min(empno) from emp group by ename, job, sal having count(*) > 1);
+40. select * from emp where deptno = 10 and ename != 'KING';
