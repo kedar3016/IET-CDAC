@@ -1,0 +1,53 @@
+package com.demo.beans;
+import java.time.*;
+import java.util.*;
+import javax.persistence.*;
+
+@Entity
+@Table(name="proj1")
+public class Project {
+	@Id
+	private int pid;
+	private String pname;
+	private LocalDate startdate;
+	@ManyToMany(mappedBy = "pset", cascade = CascadeType.ALL)
+    private Set<Employee> eset;
+	public Project() {
+		super();
+	}
+	public Project(int pid, String pname, LocalDate startdate) {
+		super();
+		this.pid = pid;
+		this.pname = pname;
+		this.startdate = startdate;
+	}
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public LocalDate getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(LocalDate startdate) {
+		this.startdate = startdate;
+	}
+	public Set<Employee> getEset() {
+		return eset;
+	}
+	public void setEset(Set<Employee> eset) {
+		this.eset = eset;
+	}
+	@Override
+	public String toString() {
+		return "Project [pid=" + pid + ", pname=" + pname + ", startdate=" + startdate + "]";
+	}
+	
+}
