@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<bean id = "sk" class ="com.demo.bean.Skill">
+	<constructor-arg index = "0" value = "1"></constructor-arg>
+	<constructor-arg index = "1" value = "C++"></constructor-arg>
+	<constructor-arg index = "2" value = "3"></constructor-arg>
+</bean>
+<bean id = "add" class ="com.demo.bean.Address">
+	<constructor-arg index = "0" value = "Sb Road"></constructor-arg>
+	<constructor-arg index = "1" value = "Pune"></constructor-arg>
+	<constructor-arg index = "2" value = "416232"></constructor-arg>
+</bean>
+
+<bean id = "f" class ="com.demo.bean.Faculty" autowire="constructor">
+	<constructor-arg index = "0" value = "101"></constructor-arg>
+	<constructor-arg index = "1" value = "Kedar"></constructor-arg>
+<!-- 	<constructor-arg index = "2" ref="sk"></constructor-arg>
+	<constructor-arg index = "3" ref = "add"></constructor-arg>
+ -->
+</bean>
+
+<bean id = "sk1" class ="com.demo.bean.Skill">
+	<property name = "skid" value = "1"></property>
+	<property name ="skname"  value = "C++"></property>
+	<property name = "exp" value = "3"></property>
+</bean>
+<bean id = "add1" class ="com.demo.bean.Address">
+	<property name = "street"  value = "Sb Road"></property>
+	<property name =  "city" value = "Pune"></property>
+	<property name = "pincode" value = "416232"></property>
+</bean>
+
+<bean id = "f1" class ="com.demo.bean.Faculty" autowire="byName">
+	<property name = "fid" value = "102"></property>
+	<property name = "fname" value = "Kedar"></property>
+<!-- 	<constructor-arg index = "2" ref="sk"></constructor-arg>
+	<constructor-arg index = "3" ref = "add"></constructor-arg>
+ -->
+</bean>
+
+
+
+
+</beans>
