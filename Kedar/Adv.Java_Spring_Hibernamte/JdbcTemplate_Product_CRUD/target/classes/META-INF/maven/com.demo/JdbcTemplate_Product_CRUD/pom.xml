@@ -1,0 +1,29 @@
+<Product xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.demo</groupId>
+  <artifactId>JdbcTemplate_Product_CRUD</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>JdbcTemplate_Product_CRUD</name>
+  <description>JdbcTemplate_Product_CRUD</description>
+  
+  <properties>
+	  <springframework.version>6.1.6</springframework.version>
+  </properties>
+  <dependencies>
+	  <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${springframework.version}</version>
+    </dependency>
+	<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.21</version>
+		</dependency>
+  </dependencies>
+</Product>
