@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <bean id = "p1" class = "com.demo.beans.Products">
+        	<property name="pid" value = "101"></property>
+        	<property name="pname" value = "Chair"></property>
+        	<property name="qty" value = "2"></property>
+        	<property name = "price" value = "452352"></property>
+        </bean>
+        <bean id = "p2" class = "com.demo.beans.Products">
+        	<property name="pid" value = "102"></property>
+        	<property name="pname" value = "Laptop"></property>
+        	<property name="qty" value = "4"></property>
+        	<property name = "price" value = "45000"></property>
+        </bean>
+        <bean id = "p3" class = "com.demo.beans.Products">
+        	<property name="pid" value = "103"></property>
+        	<property name="pname" value = "Keyboard"></property>
+        	<property name="qty" value = "14"></property>
+        	<property name = "price" value = "30052"></property>
+        </bean>
+        
+        <bean id = "ord1" class="com.demo.beans.Order">
+        	<property name="ordid" value = "1"></property>
+        	<property name="cname" value = "Kedar"></property>
+        	
+        	<property name="plist">
+        		<list>
+        			<ref bean= "p1"/>
+        			<ref bean = "p2"/>
+        			<ref bean = "p3"/>
+        		</list>
+        	</property>
+        
+        
+        </bean>
+</beans>
