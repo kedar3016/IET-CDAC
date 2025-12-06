@@ -1,0 +1,6 @@
+com\demo\beans\MyUser.class
+com\demo\service\LoginServiceImpl.class
+com\demo\controller\LoginController.class
+com\demo\dao\LoginDaoImpl.class
+com\demo\service\LoginService.class
+com\demo\dao\LoginDao.class
